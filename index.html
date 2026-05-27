@@ -744,35 +744,36 @@ footer p{font-size:12px;color:var(--mid)}
       </ul>
       <p class="spot-insight">Operação percebe a liderança de forma positiva e valoriza a proximidade no dia a dia, mas aponta oportunidades em comunicação, inclusão nos rituais da empresa e adaptação das iniciativas à realidade operacional. Como próximos passos, serão priorizados maior presença de Pessoas & Cultura na operação, fortalecimento da comunicação e adequação dos processos ao contexto do time operacional.</p>
     </div>
-  </div>
-</section>
 
-<!-- SEÇÃO 4: DIMENSÕES -->
-<section class="section" id="dimensoes">
-  <div class="sec-header">
-    <span class="label">Análise por dimensão</span>
-    <div>
-      <h2 class="sec-title">As quatro<br>dimensões avaliadas</h2>
-      <p class="sec-intro">Quatro dimensões avaliadas em todas as áreas. Duas concentram os maiores gaps — e é onde o qualitativo mais muda a interpretação do número.</p>
-    </div>
-  </div>
-
-  <div class="dim-overview">
-    <div class="dim-card">
-      <div class="dim-card-title">Alta Liderança</div>
-      <div class="dim-card-avg c-amber">86%</div>
-      <div class="dim-card-note">Média geral · maior variância</div>
-      <div class="dim-card-range">
-        <span class="dim-card-min">Mín: 57% (Est. Comercial)</span>
+    <div class="spot-card">
+      <span class="spot-tag good">OK</span>
+      <div class="spot-name">Smart Sales</div>
+      <div class="spot-enps-row">
+        <span class="spot-enps c-amber">67</span>
+        <span class="spot-enps-delta delta-down">↓21</span>
       </div>
-    </div>
-    <div class="dim-card">
-      <div class="dim-card-title">Desempenho</div>
-      <div class="dim-card-avg c-green">92%</div>
-      <div class="dim-card-note">Média geral · mais estável</div>
-      <div class="dim-card-range">
-        <span class="dim-card-min">Mín: 67% (Des. Comercial)</span>
+      <div class="spot-dims">
+        <div class="spot-dim-row"><span class="spot-dim-name">Alta Liderança</span><span class="spot-dim-val c-amber">81%</span></div>
+        <div class="spot-dim-row"><span class="spot-dim-name">Desempenho</span><span class="spot-dim-val c-green">100%</span></div>
+        <div class="spot-dim-row"><span class="spot-dim-name">Comunicação</span><span class="spot-dim-val c-amber">89%</span></div>
+        <div class="spot-dim-row"><span class="spot-dim-name">P&C</span><span class="spot-dim-val c-green">100%</span></div>
       </div>
+      <p class="spot-quanti-title">O que os números mostram</p>
+      <ul class="spot-list">
+        <li>Desempenho e P&C em 100%</li>
+        <li>e-NPS de 67</li>
+        <li>Participação de 90%</li>
+      </ul>
+      <p class="spot-quali-title">O que o qualitativo revela</p>
+      <ul class="spot-list">
+        <li>Reconhecem evolução profissional como um dos principais pontos positivos</li>
+        <li>Destacam clima positivo, com time entrosado e boas relações</li>
+        <li>Relatam pouco contato com a alta liderança — interação concentrada na liderança direta</li>
+        <li>Identificam oportunidade de ampliação em iniciativas de desenvolvimento e plataformas de treinamento</li>
+        <li>Apontam potencial de aprendizado interno com troca de conhecimento entre colaboradores</li>
+      </ul>
+      <p class="spot-insight">Área saudável com demanda clara: o time quer crescer. A queda de 21 pontos é alerta para não deixar essa demanda sem resposta. Prioridade: oferecer programa de desenvolvimento e fortalecer a proximidade com a alta liderança.</p>
+    </div>
     </div>
     <div class="dim-card">
       <div class="dim-card-title">Comunicação</div>
@@ -1520,7 +1521,9 @@ function openModal(name){
   const turnoverCol = bc(turnover);
 
   // Discussão
-  const discuss = (a.quali || []).map(t=>`<li>${t}</li>`).join('');
+  const discuss = (Array.isArray(a.quali) && a.quali.length)
+    ? a.quali.map(t=>`<li>${t}</li>`).join('')
+    : '<li>Nenhuma discussão qualitativa disponível.</li>';
 
   // Plano de ação
   const ap = (a.actions || []).map((ac,i)=>`
